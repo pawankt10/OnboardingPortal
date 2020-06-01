@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
 import { AuthService, GoogleLoginProvider } from 'angularx-social-login';
+import { AUTHENTICATED_USER } from '../service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -13,70 +14,50 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
     private authenticate: AuthenticationService,
     private socialAuthService: AuthService
-    ) {}
+  ) { }
 
-  employeeCode=''
-  password=''
-  invalidLogin :boolean
-  error :boolean
+  employeeCode = ''
+  password = ''
+  invalidLogin: boolean
+  error: boolean
 
 
   handleLogin() {
-    //  console.log(this.employeeCode);
-    //  console.log(this.password);
-    // console.log(this.login.executeLogin());
-    // this.login.executeLogin().subscribe(
-    //   response => this.handleSuccessfulResponse(response)
-      // response => { this.employeeCode = response.empID
-      //   this.password = response.password}
-    //)
-    //this.router.navigate(['home'], this.employeeCode)
-    if(this.authenticate.authenticate(this.employeeCode, this.password)) {
-      this.router.navigate(['home'])
-      this.invalidLogin= false
-    }
-    else{
-      //window.location.reload();
-      this.invalidLogin=true
-    }
+    this.authenticate.authenticate(this.employeeCode, this.password).subscribe(
+      data => {
+        if (data) {
+          this.router.navigate(['home'])
+          this.invalidLogin = false
+        }
+        else
+          this.invalidLogin = true
+      },
+      error => console.log(error))
   }
 
-  // handleSuccessfulResponse(response){
-  //   this.employeeCode = response.empID
-  //   this.password = response.password
+  public signinWithGoogle() {
+    let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
 
-  //   console.log(this.employeeCode, this.password);
-  // }
-    
-//   public signinWithGoogle () {
-//     let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
- 
-//     this.socialAuthService.signIn(socialPlatformProvider)
-//     .then((userData) => {
-//        //on success
-//        //this will return user data from google. What you need is a user token which you will send it to the server
-//        this.sendToRestApiMethod(userData.idToken);
-//     });
-//  }
-//   sendToRestApiMethod(idToken: string) {
-//    console.log("Mummy");
-//   }
+    this.socialAuthService.signIn(socialPlatformProvider)
+      .then((userData) => {
 
-public signinWithGoogle () {
-  let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+        console.log(userData);
+        const email = userData.email
+        var domain = email.split("@");
+        if (domain[1] == "accoliteindia.com") {
+          this.router.navigate(['home'])
+          sessionStorage.setItem(AUTHENTICATED_USER, this.employeeCode);
+        }
+        else
+          this.invalidLogin = true
+      });
+  }
 
-  this.socialAuthService.signIn(socialPlatformProvider)
-  .then((userData) => {
-     //on success
-     //this will return user data from google. What you need is a user token which you will send it to the server
-    //  this.sendToRestApiMethod(userData.idToken);
-    console.log(userData);
-  });
-}
-
+  close() {
+    this.invalidLogin = false
+  }
 
   ngOnInit(): void {
-    
-  }
 
+  }
 }

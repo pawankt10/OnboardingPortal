@@ -1,35 +1,37 @@
 import { Injectable } from '@angular/core';
 import { LoginService } from './data/login.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+export const AUTHENTICATED_USER = 'authenticaterUser'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private login: LoginService) {}
+  constructor(private login: LoginService,
+    private http: HttpClient) { }
 
-  employeeCode=''
-  password=''
+  // employeeCode=''
+  // password=''
+  invalidUser: boolean
 
   authenticate(eID, password) {
-    console.log(this.login.executeLogin());
-    this.login.executeLogin().subscribe(
-      response => this.handleSuccessfulResponse(response),
-      error => this.handleError(error))
-      if(this.employeeCode===eID && this.password===password) {
-        return true;
-      }
-      return false;
-    }
-
-  handleSuccessfulResponse(response){
-    this.employeeCode = response.empID
-    this.password = response.password
-    console.log(this.employeeCode, this.password);
+    this.invalidUser = true
+    //console.log(this.login.executeLogin());
+    return this.http.post('http://localhost:8080/details', { "empID": eID, "password": password }).pipe(
+      map(data => {
+        return data;
+      })
+    );
   }
 
-  handleError(error){
-
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem(AUTHENTICATED_USER)
+    return !(user === null)
   }
-  
+
+  logout() {
+    sessionStorage.removeItem(AUTHENTICATED_USER)
+  }
 }

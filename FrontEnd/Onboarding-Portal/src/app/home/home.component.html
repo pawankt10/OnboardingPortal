@@ -1,147 +1,149 @@
 <div style="margin-top: 90px;"></div>
 
 <div class="ui two column grid">
-    <div class="nine wide column">
-        <div><h3 style="margin-left: 100px;">Onboardee List:</h3>
-        <div class="ui small search">
-            <div class="ui icon input" style="margin-left: 100px;">
-              <input class="prompt" type="text" placeholder="Search Onboardee...">
-              <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
-          </div></div>
-        <table class="ui celled table" style="margin-left: 100px;">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Registration Date</th>
-                <th>E-mail address</th>
-                <th>Premium Plan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="collapsing">
-                  <div class="ui radio checkbox">
-                    <input type="checkbox"> <label></label>
-                  </div>
-                </td>
-                <td>John Lilki</td>
-                <td>September 14, 2013</td>
-                <td>jhlilk22@yahoo.com</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td class="collapsing">
-                    <div class="ui radio checkbox">
-                      <input type="checkbox"> <label></label>
-                    </div>
-                  </td>
-                <td>Jamie Harington</td>
-                <td>January 11, 2014</td>
-                <td>jamieharingonton@yahoo.com</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td class="collapsing">
-                    <div class="ui radio checkbox">
-                      <input type="checkbox"> <label></label>
-                    </div>
-                  </td>
-                <td>Jill Lewis</td>
-                <td>May 11, 2014</td>
-                <td>jilsewris22@yahoo.com</td>
-                <td>Yes</td>
-              </tr>
-            </tbody>
-            <tfoot class="full-width">
-              <tr>
-                <th colspan="5">
-                  <div class="ui right floated small icon button">
-                    <i class="user icon"></i> Add Onboardee
-                  </div>
-                  <div class="ui small button">
-                    Update
-                  </div>
-                  <div class="ui small button">
-                    Delete
-                  </div>
-                  <div class="ui small button">
-                    View
-                  </div>
-                </th>
-              </tr>
-            </tfoot>
-          </table>
+  <div class="nine wide column">
+    <div>
+      <h3 style="margin-left: 100px;">Onboardee List:</h3>
+      <div class="ui small search">
+        <div class="ui icon input" style="margin-left: 100px;">
+          <input class="prompt" type="text" placeholder="Search Onboardee...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
     </div>
+    <table class="ui celled table" style="margin-left: 100px;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Registration Date</th>
+          <th>E-mail address</th>
+          <th>BGC Check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="collapsing">
+            <div class="ui radio checkbox">
+              <input type="checkbox" name="tick"> <label></label>
+            </div>
+          </td>
+          <td>John Lilki</td>
+          <td>September 14, 2013</td>
+          <td>jhlilk22@yahoo.com</td>
+          <td>Done</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui radio checkbox">
+              <input type="checkbox" name="tick"> <label></label>
+            </div>
+          </td>
+          <td>Jamie Harington</td>
+          <td>January 11, 2014</td>
+          <td>jamieharingonton@yahoo.com</td>
+          <td>In Progress</td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <div class="ui radio checkbox">
+              <input type="checkbox" name="tick"> <label></label>
+            </div>
+          </td>
+          <td>Jill Lewis</td>
+          <td>May 11, 2014</td>
+          <td>jilsewris22@yahoo.com</td>
+          <td>In Progress</td>
+        </tr>
+      </tbody>
+      <tfoot class="full-width">
+        <tr>
+          <th colspan="5">
+            <div class="ui right floated small icon button" (click)="handleAdd()">
+              <i class="user icon"></i> Add Onboardee
+            </div>
+            <div class="ui small button">
+              Update
+            </div>
+            <div class="ui small button">
+              Delete
+            </div>
+            <div class="ui small button">
+              View
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 
-    <div class="six wide column">         
-        <div class="ui card" style="margin-left: 215px;">
-            <div class="content">
-                <img src="C:\Users\PAWAN KT\Desktop\Accolite\FrontEnd\Onboarding-Portal\src\assets\Accolite_Logo.jpg" class="ui mini right floated image" />
-                <div class="header">Pawan Kumar</div>
-                <div class="meta">Intern at Accolite</div>
-                <div class="description">
-                <strong>Full Stack Developer</strong>
-                </div>
-            </div>
+  <div class="six wide column">
+    <div class="ui card" style="margin-left: 215px;">
+      <div class="content">
+        <!-- <img src="C:\Users\PAWAN KT\Desktop\Accolite\FrontEnd\Onboarding-Portal\src\assets\Accolite_Logo.jpg" class="ui mini right floated image" /> -->
+        <div class="header">Pawan Kumar</div>
+        <div class="meta">Intern at Accolite</div>
+        <div class="description">
+          <strong>Full Stack Developer</strong>
         </div>
-        <div style="margin-top: 200px;">
-            <div class="ui five statistics" style="margin-left: 320px;">
-                <div class="ui red tiny horizontal statistic">
-                    <div class="value">
-                        <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-                        42
-                    </div>
-                    <div class="label">
-                        Bangalore
-                    </div>
-                </div>
-                <div class="ui teal tiny horizontal statistic" style="margin-left: 20px;">
-                    <div class="value">
-                    <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-                        42
-                    </div>
-                    <div class="label">
-                        Delhi    
-                    </div>
-                </div>
-                <div class="ui orange tiny horizontal statistic">
-                    <div class="value">
-                        <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-                        42
-                    </div>
-                    <div class="label">
-                        Chennai
-                    </div>
-                </div>
-                <div class="ui blue tiny horizontal statistic" style="margin-left: 20px;">
-                    <div class="value">
-                      <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-                      42
-                    </div>
-                    <div class="label">
-                      Mumbai
-                    </div>
-                </div>
-                <div class="ui pink tiny horizontal statistic">
-                  <div class="value">
-                    <!-- <img src="src\assets\delhi.png" width="10"> -->
-                    42
-                  </div>
-                  <div class="label">
-                    Hyderabad
-                  </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="eight wide column"></div>
-    <div class="eight wide column">       
-            
-        </div> 
-    <!-- <div class="eleven wide column"></div>
+    <div style="margin-top: 200px;">
+      <div class="ui five statistics" style="margin-left: 320px;">
+        <div class="ui red tiny horizontal statistic">
+          <div class="value">
+            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
+            42
+          </div>
+          <div class="label">
+            Bangalore
+          </div>
+        </div>
+        <div class="ui teal tiny horizontal statistic" style="margin-left: 20px;">
+          <div class="value">
+            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
+            42
+          </div>
+          <div class="label">
+            Delhi
+          </div>
+        </div>
+        <div class="ui orange tiny horizontal statistic">
+          <div class="value">
+            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
+            42
+          </div>
+          <div class="label">
+            Chennai
+          </div>
+        </div>
+        <div class="ui blue tiny horizontal statistic" style="margin-left: 20px;">
+          <div class="value">
+            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
+            42
+          </div>
+          <div class="label">
+            Mumbai
+          </div>
+        </div>
+        <div class="ui pink tiny horizontal statistic">
+          <div class="value">
+            <!-- <img src="src\assets\delhi.png" width="10"> -->
+            42
+          </div>
+          <div class="label">
+            Hyderabad
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="eight wide column"></div>
+  <div class="eight wide column">
+
+  </div>
+  <!-- <div class="eleven wide column"></div>
     <div class="four wide column">
 
     </div> -->

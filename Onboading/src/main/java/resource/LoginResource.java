@@ -1,39 +1,37 @@
 package resource;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RestController;
 
 import model.LoginDetails;
 import repository.LoginRepository;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class LoginResource {
 
 	   @Autowired
 	    private LoginRepository loginRepo;
 	   
-	   @GetMapping(value = "/test")
-	    public String test() {
-	    	System.out.println("Running");
-	        return "Done"; 
+	    @PostMapping(value="/details") 
+	    public boolean getLoginDetails(@RequestBody LoginDetails loginDetails) {
+			try {
+	    	loginDetails.getEmpID();
+			Optional<LoginDetails> cred = loginRepo.findById(loginDetails.getEmpID());
+			if(cred!=null) {
+				LoginDetails d = cred.get();
+				if(loginDetails.getPassword().equals(d.getPassword())) {
+					System.out.println("True");
+					return true;
+				}
+			}
+			}catch(Exception e) {
+				e.printStackTrace();
+				return false;	
+			}
+			System.out.println("False2");
+			return false;	
 	    }
-	   
-	    @GetMapping(value = "/details")
-	    public List<LoginDetails> getDetails() {
-	    	System.out.println("Running");
-//	    	LoginDetails a = new LoginDetails();
-//	    	a.setPassword("pawan");
-//	    	a.setEmpID("kumar");
-//	    	loginRepo.save(a);
-	        return (List<LoginDetails>) loginRepo.findAll();
-	    }
-
-//	    @PostMapping(value = "/load")
-//	    public List<LoginDetails> addDeatais(){
-//	        loginRepo.save(loginDetails);
-// 	        return (List<LoginDetails>) loginRepo.findAll();
-//	    }
 }

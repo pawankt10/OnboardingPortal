@@ -3,26 +3,24 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="LoginDetails")
 public class LoginDetails {
 	
 	@Id
-	@GeneratedValue
-	
-	@Column( name="Employee_ID" )
 	private String empID;
-	@Column( name="Password" )
 	private String password;
 	
 	public LoginDetails() {
 		
 	}
+	@Column(name="Employee_ID")
 	public String getEmpID() {
 		return empID;
 	}
 	public void setEmpID(String empID) {
 		this.empID = empID;
 	}
+	
+	@Column(name="Password")
 	public String getPassword() {
 		return password;
 	}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { getAuthServiceConfigs } from './socialloginconfigs';
 import { UpdateComponent } from './update/update.component';
+import { OnboardeeComponent } from './onboardee/onboardee.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,17 @@ import { UpdateComponent } from './update/update.component';
     LoginComponent,
     ErrorComponent,
     HomeComponent,
-    UpdateComponent
+    UpdateComponent,
+    OnboardeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

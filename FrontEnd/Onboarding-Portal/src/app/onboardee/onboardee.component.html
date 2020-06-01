@@ -1,0 +1,125 @@
+<div style="margin-top: 90px;"></div>
+<div class="ui teal segment"
+    style="width: 570px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '110px'; padding: 30px;">
+    <form class="ui small form" [formGroup]="myform">
+        <div class="two fields">
+            <div class=" field">
+                <label>Full Name</label>
+                <input type="text" name="first-name" placeholder="Full Name" formControlName="name">
+            </div>
+            <div class="field">
+                <label>Onboardee ID</label>
+                <input type="text" name="last-name" placeholder="Onboardee ID" formControlName="OnboardeeID">
+            </div>
+        </div>
+        <div class="field" style="margin-top: 20px">
+            <label>Contact Number</label>
+            <input type="text" name="last-name" placeholder="Contact Number" formControlName="contactNo">
+        </div>
+        <div class="field" style="margin-top: 20px">
+            <label>Email ID</label>
+            <input type="text" name="last-name" placeholder="Email ID" formControlName="emailId">
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>Demand ID</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="demandID" formControlName="demandID" value="Campus Hire">
+                    <label>Campus Hire</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="demandID" formControlName="demandID" value="Onsite Hire">
+                    <label>Onsite Hire</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>Document Status</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="docsStatus" formControlName="docsStatus" value="In Progress">
+                    <label>In Progress</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="docsStatus" formControlName="docsStatus" value="Done">
+                    <label>Done</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>Onboarding Status</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="In Progress">
+                    <label>In Progress</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="Done">
+                    <label>Done</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>Location</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="location" formControlName="location" value="Bangalore">
+                    <label>Bangalore</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="location" formControlName="location" value="Chennai">
+                    <label>Chennai</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="location" formControlName="location" value="Delhi">
+                    <label>Delhi</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="location" formControlName="location" value="Hyderabad">
+                    <label>Hyderabad</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="location" formControlName="location" value="Mumbai">
+                    <label>Mumbai</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>BGC Status</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="bgcStatus" formControlName="bgcStatus" value="In Progress">
+                    <label>In Progress</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="bgcStatus" formControlName="bgcStatus" value="Done">
+                    <label>Done</label>
+                </div>
+            </div>
+        </div>
+
+        <button class="ui button" type="submit" (click)="handleNewOnboardee(myform.value)"
+            style="margin-top: 15px;">Submit</button>
+    </form>
+</div>

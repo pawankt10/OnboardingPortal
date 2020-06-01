@@ -1,62 +1,41 @@
-
-
 <!-- Login Form -->
-<div class="ui teal segment" style="width: 350px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '180px'; padding: 30px;">
- 
-    <form class="ui form" >
-        <div class="field">
-          <label>Employee Code</label>
-          <div class="ui left icon input">
-          <input type="text"  placeholder="Employee Code" [(ngModel)]="employeeCode" [ngModelOptions]="{standalone: true}"/>
-          <i aria-hidden="true" class="user icon"></i>
-          </div>
-        </div>
-        <div class="field" >
-          <label>Password</label>
-          <div class="ui left icon input">
-          <input type="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"/>
-          <i aria-hidden="true" class="lock icon"></i>
-          </div>
-        </div>
-        <!-- <div class="field">
-          <div class="ui checkbox">
-            <input type="checkbox"/>
-            <label>I agree to the Terms and Conditions</label>
-          </div>
-        </div> -->
-        <!-- <div><a href="Fogotten Password">Forgot Password?</a></div> -->
-        <button type="submit" class="ui button" (click)=handleLogin()>Submit</button>
-    </form>
-  
+<div class="ui teal segment"
+  style="width: 350px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '140px'; padding: 30px;">
+
+  <form class="ui form">
+    <div class="field">
+      <label>Employee Code</label>
+      <div class="ui left icon input">
+        <input type="text" placeholder="Employee Code" [(ngModel)]="employeeCode"
+          [ngModelOptions]="{standalone: true}" />
+        <i aria-hidden="true" class="user icon"></i>
+      </div>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <div class="ui left icon input">
+        <input type="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
+        <i aria-hidden="true" class="lock icon"></i>
+      </div>
+    </div>
+    <div class="ui mini negative message" *ngIf='invalidLogin'>
+      <i class="close icon" (click)="close()"></i>
+      <div class="header">
+        Invalid Credentials!!!
+      </div>
+      <p>Please try again
+      </p>
+    </div>
+    <button type="submit" class="ui button" (click)=handleLogin()>Submit</button>
+  </form>
+
   <div class="ui horizontal divider">Or</div>
   <div class="ui basic center aligned segment">
-<!-- <div><div class="row">
-  <div class="col-md-3">
-    <a class="btn btn-outline-dark" href="/users/googleauth" role="button" style="text-transform:none">
-      <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-      Login with Google
-    </a>
-  </div>
-</div></div> -->
 
-  <button class="ui grey basic button" (click)="signinWithGoogle()">
-    <img width="17px" style="vertical-align:middle; margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-    Login with Google
-  </button>
+    <button class="ui grey basic button" (click)="signinWithGoogle()">
+      <img width="17px" style="vertical-align:middle; margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+      Login with Google
+    </button>
   </div>
 </div>
-
-
-
-<h1 *ngIf='invalidLogin'>Wrong Credentials</h1>
-
-
-
-
-  
-
-
-
-<!-- Employee Code : <input type="text" name="username" [(ngModel)]="employeeCode">
-    Password  : <input type="password" name="password" [(ngModel)]="password">
-    <button (click)=handleLogin() class="btn btn-success">Login</button> -->

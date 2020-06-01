@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class model {
-  constructor (public eID: String, public password: String) {}
+  constructor(public eID: String, public password: String) { }
 }
 
 @Injectable({
@@ -11,10 +11,10 @@ export class model {
 })
 export class LoginService {
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   executeLogin() {
-    return this.http.get<model>('http://localhost:8080/login');
+    return this.http.post('http://localhost:8080/login', {});
   }
 
 }
