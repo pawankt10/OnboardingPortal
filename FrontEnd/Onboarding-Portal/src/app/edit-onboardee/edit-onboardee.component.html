@@ -5,20 +5,20 @@
         <div class="two fields">
             <div class=" field">
                 <label>Full Name</label>
-                <input type="text" name="first-name" placeholder="Full Name" formControlName="name">
+                <input type="text" name="first-name" formControlName="name">
             </div>
             <div class="field">
                 <label>Onboardee ID</label>
-                <input type="text" name="last-name" placeholder="Onboardee ID" formControlName="onboardeeID">
+                <input type="text" name="last-name" formControlName="onboardeeID">
             </div>
         </div>
         <div class="field" style="margin-top: 20px">
             <label>Contact Number</label>
-            <input type="text" name="last-name" placeholder="Contact Number" formControlName="contactNo">
+            <input type="text" name="last-name" formControlName="contactNo">
         </div>
         <div class="field" style="margin-top: 20px">
             <label>Email ID</label>
-            <input type="text" name="last-name" placeholder="Email ID" formControlName="emailId">
+            <input type="text" name="last-name" formControlName="emailId">
         </div>
 
         <div class="inline fields" style="margin-top: 20px;">
@@ -41,7 +41,7 @@
             <label>Document Status</label>
             <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="docsStatus" formControlName="docsStatus" value="In Progress">
+                    <input type="radio" name="docsStatus" formControlName="docsStatus" value="In Progress" checked>
                     <label>In Progress</label>
                 </div>
             </div>
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <button class="ui button" type="submit" (click)="handleNewOnboardee(myform.value)"
-            style="margin-top: 15px;">Submit</button>
+        <button class="ui button" type="submit" (click)="saveOnboardee(myform.value)"
+            style="margin-top: 15px;">Save</button>
     </form>
 </div>

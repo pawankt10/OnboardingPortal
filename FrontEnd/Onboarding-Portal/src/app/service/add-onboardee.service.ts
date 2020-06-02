@@ -11,10 +11,10 @@ export class AddOnboardeeService {
     private http: HttpClient) { }
 
   addNewOnboardee(data) {
-
+    console.log(data);
     this.http.post('http://localhost:8080//OnboardeeDetails', data).subscribe(
       response => console.log(response),
-      error => console.log("Hello"))
+      error => console.log("Hello"));
   }
 
 }

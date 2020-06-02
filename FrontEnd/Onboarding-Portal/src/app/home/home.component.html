@@ -16,45 +16,23 @@
       <thead>
         <tr>
           <th></th>
+          <th>Onboardee ID</th>
           <th>Name</th>
-          <th>Registration Date</th>
           <th>E-mail address</th>
-          <th>BGC Check</th>
+          <th>Onboarding Check</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="collapsing">
+        <tr class="" *ngFor="let onboardee of onboardeeList">
+          <td class="">
             <div class="ui radio checkbox">
-              <input type="checkbox" name="tick"> <label></label>
+              <input type="radio" name="tick" [(ngModel)]="myDetails" value={{onboardee.onboardeeKey}}> <label></label>
             </div>
           </td>
-          <td>John Lilki</td>
-          <td>September 14, 2013</td>
-          <td>jhlilk22@yahoo.com</td>
-          <td>Done</td>
-        </tr>
-        <tr>
-          <td class="collapsing">
-            <div class="ui radio checkbox">
-              <input type="checkbox" name="tick"> <label></label>
-            </div>
-          </td>
-          <td>Jamie Harington</td>
-          <td>January 11, 2014</td>
-          <td>jamieharingonton@yahoo.com</td>
-          <td>In Progress</td>
-        </tr>
-        <tr>
-          <td class="collapsing">
-            <div class="ui radio checkbox">
-              <input type="checkbox" name="tick"> <label></label>
-            </div>
-          </td>
-          <td>Jill Lewis</td>
-          <td>May 11, 2014</td>
-          <td>jilsewris22@yahoo.com</td>
-          <td>In Progress</td>
+          <td class="">{{onboardee.onboardeeID}}</td>
+          <td class="">{{onboardee.emailId}}</td>
+          <td class="">{{onboardee.contactNo}}</td>
+          <td class="">{{onboardee.onboardingStatus}}</td>
         </tr>
       </tbody>
       <tfoot class="full-width">
@@ -63,13 +41,13 @@
             <div class="ui right floated small icon button" (click)="handleAdd()">
               <i class="user icon"></i> Add Onboardee
             </div>
-            <div class="ui small button">
+            <div class="ui small button" (click)=editDetails()>
               Update
             </div>
-            <div class="ui small button">
+            <div class="ui small button" (click)=deleteOnboardee()>
               Delete
             </div>
-            <div class="ui small button">
+            <div class="ui small button" (click)=viewDetails()>
               View
             </div>
           </th>

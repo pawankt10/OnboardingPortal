@@ -27,8 +27,8 @@ export class OnboardeeComponent implements OnInit {
   ngOnInit(): void {
 
     this.myform = this.fb.group({
-      name: new FormControl('', [Validators.required, Validators.email]),
-      OnboardeeID: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      onboardeeID: new FormControl('', [Validators.required]),
       contactNo: new FormControl('', [Validators.required]),
       demandID: new FormControl('', [Validators.required]),
       docsStatus: new FormControl('', [Validators.required]),

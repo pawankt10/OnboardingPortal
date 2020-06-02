@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import model.OnboardeeDetails;
 
 @Repository
-public interface OnboardeeRepository extends JpaRepository<OnboardeeDetails, String> {
+public interface OnboardeeRepository extends JpaRepository<OnboardeeDetails, Integer> {
 
 }

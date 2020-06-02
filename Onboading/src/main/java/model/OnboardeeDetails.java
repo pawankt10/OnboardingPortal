@@ -2,15 +2,13 @@ package model;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
 
 public class OnboardeeDetails {
 
 	@Id
-	@GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid", strategy = "uuid")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int OnboardeeKey;
 	private String OnboardeeID;
 	private String name;
 	private String contactNo;
@@ -97,11 +95,20 @@ public class OnboardeeDetails {
 		this.docsStatus = docsStatus;
 	}
 
+	public int getOnboardeeKey() {
+		return OnboardeeKey;
+	}
+
+	public void setOnboardeeKey(int onboardeeKey) {
+		OnboardeeKey = onboardeeKey;
+	}
+
 	@Override
 	public String toString() {
-		return "OnboardeeDetails [OnboardeeID=" + OnboardeeID + ", name=" + name + ", contactNo=" + contactNo
-				+ ", emailId=" + emailId + ", demandID=" + demandID + ", location=" + location + ", bgcStatus="
-				+ bgcStatus + ", onboardingStatus=" + onboardingStatus + ", docsStatus=" + docsStatus + "]";
+		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", OnboardeeID=" + OnboardeeID + ", name=" + name
+				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", demandID=" + demandID + ", location="
+				+ location + ", bgcStatus=" + bgcStatus + ", onboardingStatus=" + onboardingStatus + ", docsStatus="
+				+ docsStatus + "]";
 	}
-		
+	
 }

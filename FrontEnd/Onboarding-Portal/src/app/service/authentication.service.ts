@@ -9,11 +9,9 @@ export const AUTHENTICATED_USER = 'authenticaterUser'
 })
 export class AuthenticationService {
 
-  constructor(private login: LoginService,
+  constructor(
     private http: HttpClient) { }
 
-  // employeeCode=''
-  // password=''
   invalidUser: boolean
 
   authenticate(eID, password) {

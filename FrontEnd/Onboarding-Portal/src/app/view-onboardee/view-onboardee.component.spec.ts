@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateComponent } from './update.component';
+import { ViewOnboardeeComponent } from './view-onboardee.component';
 
-describe('UpdateComponent', () => {
-  let component: UpdateComponent;
-  let fixture: ComponentFixture<UpdateComponent>;
+describe('ViewOnboardeeComponent', () => {
+  let component: ViewOnboardeeComponent;
+  let fixture: ComponentFixture<ViewOnboardeeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateComponent ]
+      declarations: [ ViewOnboardeeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateComponent);
+    fixture = TestBed.createComponent(ViewOnboardeeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,8 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { getAuthServiceConfigs } from './socialloginconfigs';
-import { UpdateComponent } from './update/update.component';
 import { OnboardeeComponent } from './onboardee/onboardee.component';
+import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
+import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { OnboardeeComponent } from './onboardee/onboardee.component';
     LoginComponent,
     ErrorComponent,
     HomeComponent,
-    UpdateComponent,
-    OnboardeeComponent
+    OnboardeeComponent,
+    ViewOnboardeeComponent,
+    EditOnboardeeComponent
   ],
   imports: [
     BrowserModule,
