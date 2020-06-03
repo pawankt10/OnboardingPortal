@@ -6,16 +6,16 @@ import { HomeComponent } from './home/home.component';
 import { OnboardeeComponent } from './onboardee/onboardee.component';
 import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
 import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.component';
+import { RouteGuardService } from './service/route-guard.service';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  // { path: 'home/:name', component: HomeComponent },
-  { path: 'home/:id', component: HomeComponent },
-  { path: 'onboardee', component: OnboardeeComponent },
-  { path: 'view/:id', component: ViewOnboardeeComponent },
-  { path: 'edit/:id', component: EditOnboardeeComponent },
+  { path: 'home/:id', component: HomeComponent, canActivate: [RouteGuardService] },
+  { path: 'onboardee', component: OnboardeeComponent, canActivate: [RouteGuardService] },
+  { path: 'view/:id', component: ViewOnboardeeComponent, canActivate: [RouteGuardService] },
+  { path: 'edit/:id', component: EditOnboardeeComponent, canActivate: [RouteGuardService] },
 
   // <--------- Place every route above it --------->
   { path: '**', component: ErrorComponent }

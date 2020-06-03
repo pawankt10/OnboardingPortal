@@ -78,7 +78,7 @@
   <img width="40" alt="Accolite Logo" src="assets/newLogo.png" />
   <span style="font-weight: 600; font-size:large; color: white;">Onboarding Portal</span>
   <div><button class="ui inverted basic button" *ngIf="authenticate.isUserLoggedIn()"
-      style="padding: 10px; margin-left: 50px;" routerLink="/home">Home</button></div>
+      style="padding: 10px; margin-left: 50px;" [routerLink]="['/home', key]">Home</button></div>
   <div class="spacer"></div>
   <div><button class="ui inverted basic button" *ngIf="authenticate.isUserLoggedIn()" style="padding: 10px;"
       (click)=logout()>Logout</button></div>
