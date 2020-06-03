@@ -22,4 +22,12 @@ export class FetchOnboardeeService {
     return this.http.post(`http://localhost:8080/edit/${id}`, data);
   }
 
+  fetchCount(data: String) {
+    return this.http.get(`http://localhost:8080/count/${data}`);
+  }
+
+  fetchLoginDetails(id: String) {
+    return this.http.get(`http://localhost:8080/home/${id}`);
+  }
+
 }

@@ -1,24 +1,48 @@
 <div style="margin-top: 90px;"></div>
-<div class="ui teal segment"
-    style="width: 570px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '110px'; padding: 30px;">
+<div class="ui piled segment"
+    style="width: 570px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '100px'; padding: 30px;">
     <form class="ui small form" [formGroup]="myform">
+        <div class="ui raised segments" style="height: 40px;">
+            <h4 class="ui horizontal divider header" style="margin-top: 10px;">
+                <i class="tag icon" style="color: teal;"></i>
+                Onboardee Details
+            </h4>
+        </div>
         <div class="two fields">
-            <div class=" field">
+            <div class=" field" style="margin-top: 20px">
                 <label>Full Name</label>
-                <input type="text" name="first-name" placeholder="Full Name" formControlName="name">
+                <input type="text" name="full-name" placeholder="Full Name" formControlName="name"
+                    style="height: 30px;">
             </div>
-            <div class="field">
+            <div class="field" style="margin-top: 20px">
                 <label>Onboardee ID</label>
-                <input type="text" name="last-name" placeholder="Onboardee ID" formControlName="onboardeeID">
+                <input type="text" name="OnboardeeId" placeholder="Onboardee ID" formControlName="onboardeeID"
+                    style="height: 30px;">
             </div>
         </div>
-        <div class="field" style="margin-top: 20px">
-            <label>Contact Number</label>
-            <input type="text" name="last-name" placeholder="Contact Number" formControlName="contactNo">
+        <div class="two fields">
+            <div class="six wide field" style="margin-top: 5px">
+                <label>Contact Number</label>
+                <input type="text" name="ContactNo" placeholder="Contact Number" formControlName="contactNo"
+                    style="height: 30px;">
+            </div>
+            <div class="ten wide field" style="margin-top: 5px">
+                <label>Email ID</label>
+                <input type="text" name="EmailID" placeholder="Email ID" formControlName="emailId"
+                    style="height: 30px;">
+            </div>
         </div>
-        <div class="field" style="margin-top: 20px">
-            <label>Email ID</label>
-            <input type="text" name="last-name" placeholder="Email ID" formControlName="emailId">
+
+        <div class="two fields">
+            <div class="field" style="margin-top: 5px;">
+                <label>Onboarding Start Date</label>
+                <input type="date" name="StartDate" formControlName="startDate" style="height: 30px;">
+            </div>
+
+            <div class="field" style="margin-top: 5px;">
+                <label>Estimated Time of Arrival</label>
+                <input type="date" name="ArrivalDate" formControlName="arrivalDate" style="height: 30px;">
+            </div>
         </div>
 
         <div class="inline fields" style="margin-top: 20px;">
@@ -48,22 +72,6 @@
             <div class="field">
                 <div class="ui radio checkbox">
                     <input type="radio" name="docsStatus" formControlName="docsStatus" value="Done">
-                    <label>Done</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="inline fields" style="margin-top: 20px;">
-            <label>Onboarding Status</label>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="In Progress">
-                    <label>In Progress</label>
-                </div>
-            </div>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="Done">
                     <label>Done</label>
                 </div>
             </div>
@@ -114,6 +122,22 @@
             <div class="field">
                 <div class="ui radio checkbox">
                     <input type="radio" name="bgcStatus" formControlName="bgcStatus" value="Done">
+                    <label>Done</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="inline fields" style="margin-top: 20px;">
+            <label>Onboarding Status</label>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="In Progress">
+                    <label>In Progress</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="onboardingStatus" formControlName="onboardingStatus" value="Done">
                     <label>Done</label>
                 </div>
             </div>

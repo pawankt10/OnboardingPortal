@@ -1,7 +1,13 @@
 <!-- Login Form -->
-<div class="ui teal segment"
-  style="width: 350px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '140px'; padding: 30px;">
-
+<div class="ui piled segment"
+  style="width: 350px; margin-Left: 'auto'; margin-Right: 'auto'; margin-Top: '100px'; padding: 30px;">
+  <img class="center" src="assets/newLogo.png"
+    style="margin-left: auto; margin-right: auto; width:100px; display: block;" />
+  <div style="height: 40px;">
+    <h3 class="ui horizontal divider header" style="margin-top: 10px; color:#0f1c23">
+      Login to Portal
+    </h3>
+  </div>
   <form class="ui form">
     <div class="field">
       <label>Employee Code</label>
@@ -23,8 +29,7 @@
       <div class="header">
         Invalid Credentials!!!
       </div>
-      <p>Please try again
-      </p>
+      <p>Please try again</p>
     </div>
     <button type="submit" class="ui button" (click)=handleLogin()>Submit</button>
   </form>

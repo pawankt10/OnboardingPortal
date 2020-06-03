@@ -19,15 +19,18 @@ export class LoginComponent implements OnInit {
   employeeCode = ''
   password = ''
   invalidLogin: boolean
+  loginRecord: any
   error: boolean
-
 
   handleLogin() {
     this.authenticate.authenticate(this.employeeCode, this.password).subscribe(
       data => {
         if (data) {
-          this.router.navigate(['home'])
+          this.loginRecord = data
+          console.log(this.loginRecord)
           this.invalidLogin = false
+          sessionStorage.setItem(AUTHENTICATED_USER, this.employeeCode);
+          this.router.navigate([`home/${this.loginRecord.empID}`])
         }
         else
           this.invalidLogin = true
@@ -45,8 +48,14 @@ export class LoginComponent implements OnInit {
         const email = userData.email
         var domain = email.split("@");
         if (domain[1] == "accoliteindia.com") {
-          this.router.navigate(['home'])
-          sessionStorage.setItem(AUTHENTICATED_USER, this.employeeCode);
+          this.authenticate.getEmployeeId(userData.id).subscribe(
+            data => {
+            this.loginRecord = data; console.log(this.loginRecord);
+              sessionStorage.setItem(AUTHENTICATED_USER, this.loginRecord.empID);
+              this.router.navigate([`home/${this.loginRecord.empID}`])
+            },
+            error => console.log(error)
+          );
         }
         else
           this.invalidLogin = true

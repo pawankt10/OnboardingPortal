@@ -8,4 +8,6 @@ import model.OnboardeeDetails;
 @Repository
 public interface OnboardeeRepository extends JpaRepository<OnboardeeDetails, Integer> {
 
+	int countBylocation(String location);
+
 }

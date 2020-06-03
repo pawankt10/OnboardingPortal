@@ -49,5 +49,11 @@ public class OnboardeeResource {
 		 System.out.println(id+" Hello");
 			onboardeeRepo.deleteById(id);
 	    }
+	 
+	 @GetMapping(value = "/count/{location}")
+	 public int fetchCountLocation(@PathVariable String location) {
+		 System.out.println(onboardeeRepo.countBylocation(location)+" Hello");
+		 return onboardeeRepo.countBylocation(location);
+	 }
 	
 }

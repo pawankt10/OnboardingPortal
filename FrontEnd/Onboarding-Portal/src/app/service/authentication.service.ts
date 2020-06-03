@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoginService } from './data/login.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-export const AUTHENTICATED_USER = 'authenticaterUser'
+export const AUTHENTICATED_USER = 'validatedUser'
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,11 @@ export class AuthenticationService {
         return data;
       })
     );
+  }
+
+  getEmployeeId(googleID: String) {
+    console.log(googleID);
+    return this.http.get(`http://localhost:8080/home2/${googleID}`);
   }
 
   isUserLoggedIn() {

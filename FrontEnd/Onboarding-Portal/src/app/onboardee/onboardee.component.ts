@@ -35,7 +35,9 @@ export class OnboardeeComponent implements OnInit {
       emailId: new FormControl('', [Validators.required]),
       onboardingStatus: new FormControl('', [Validators.required]),
       location: new FormControl('', [Validators.required]),
-      bgcStatus: new FormControl('', [Validators.required])
+      bgcStatus: new FormControl('', [Validators.required]),
+      startDate: new FormControl('', [Validators.required]),
+      arrivalDate: new FormControl('', [Validators.required]),
     });
   }
 

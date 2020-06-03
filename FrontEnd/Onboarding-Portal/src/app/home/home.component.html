@@ -3,7 +3,8 @@
 <div class="ui two column grid">
   <div class="nine wide column">
     <div>
-      <h3 style="margin-left: 100px;">Onboardee List:</h3>
+      <h3 style="margin-left: 100px;">
+        <i class="large align justify icon"></i> Onboardee List</h3>
       <div class="ui small search">
         <div class="ui icon input" style="margin-left: 100px;">
           <input class="prompt" type="text" placeholder="Search Onboardee...">
@@ -12,17 +13,18 @@
         <div class="results"></div>
       </div>
     </div>
-    <table class="ui celled table" style="margin-left: 100px;">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Onboardee ID</th>
-          <th>Name</th>
-          <th>E-mail address</th>
-          <th>Onboarding Check</th>
-        </tr>
-      </thead>
-      <tbody>
+    <table class="ui celled striped table" style="margin-left: 100px;">
+
+      <tbody style="height: 250px; overflow-y: auto; overflow-x: hidden; display: block;">
+        <thead>
+          <tr>
+            <th><i class="dot circle outline icon"></i></th>
+            <th>Onboardee ID</th>
+            <th>Name</th>
+            <th>E-mail address</th>
+            <th>Onboarding Check</th>
+          </tr>
+        </thead>
         <tr class="" *ngFor="let onboardee of onboardeeList">
           <td class="">
             <div class="ui radio checkbox">
@@ -30,24 +32,27 @@
             </div>
           </td>
           <td class="">{{onboardee.onboardeeID}}</td>
+          <td class="">{{onboardee.name}}</td>
           <td class="">{{onboardee.emailId}}</td>
-          <td class="">{{onboardee.contactNo}}</td>
           <td class="">{{onboardee.onboardingStatus}}</td>
         </tr>
       </tbody>
       <tfoot class="full-width">
         <tr>
           <th colspan="5">
-            <div class="ui right floated small icon button" (click)="handleAdd()">
+            <div class="ui right floated small button" (click)="handleAdd()">
               <i class="user icon"></i> Add Onboardee
             </div>
             <div class="ui small button" (click)=editDetails()>
-              Update
+              <i class="edit icon"></i>
+              Edit
             </div>
             <div class="ui small button" (click)=deleteOnboardee()>
+              <i class="trash icon"></i>
               Delete
             </div>
             <div class="ui small button" (click)=viewDetails()>
+              <i class="eye icon"></i>
               View
             </div>
           </th>
@@ -57,22 +62,20 @@
   </div>
 
   <div class="six wide column">
-    <div class="ui card" style="margin-left: 215px;">
+    <a class="ui teal card" style="margin-left: 215px;">
       <div class="content">
-        <!-- <img src="C:\Users\PAWAN KT\Desktop\Accolite\FrontEnd\Onboarding-Portal\src\assets\Accolite_Logo.jpg" class="ui mini right floated image" /> -->
-        <div class="header">Pawan Kumar</div>
-        <div class="meta">Intern at Accolite</div>
+        <div class="header">{{loginDetail.name}}</div>
+        <div class="meta"><i>{{loginDetail.emailID}}</i></div>
         <div class="description">
-          <strong>Full Stack Developer</strong>
+          <strong>{{loginDetail.department}}</strong>
         </div>
       </div>
-    </div>
+    </a>
     <div style="margin-top: 200px;">
       <div class="ui five statistics" style="margin-left: 320px;">
         <div class="ui red tiny horizontal statistic">
           <div class="value">
-            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-            42
+            {{bangalore}}
           </div>
           <div class="label">
             Bangalore
@@ -80,8 +83,7 @@
         </div>
         <div class="ui teal tiny horizontal statistic" style="margin-left: 20px;">
           <div class="value">
-            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-            42
+            {{delhi}}
           </div>
           <div class="label">
             Delhi
@@ -89,8 +91,7 @@
         </div>
         <div class="ui orange tiny horizontal statistic">
           <div class="value">
-            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-            42
+            {{chennai}}
           </div>
           <div class="label">
             Chennai
@@ -98,8 +99,7 @@
         </div>
         <div class="ui blue tiny horizontal statistic" style="margin-left: 20px;">
           <div class="value">
-            <!-- <img src="/images/avatar/small/joe.jpg" class="ui circular inline image"> -->
-            42
+            {{mumbai}}
           </div>
           <div class="label">
             Mumbai
@@ -107,8 +107,7 @@
         </div>
         <div class="ui pink tiny horizontal statistic">
           <div class="value">
-            <!-- <img src="src\assets\delhi.png" width="10"> -->
-            42
+            {{hyderabad}}
           </div>
           <div class="label">
             Hyderabad

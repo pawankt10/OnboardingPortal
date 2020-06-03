@@ -8,5 +8,8 @@ import model.LoginDetails;
 
 @Repository
 public interface LoginRepository extends JpaRepository<LoginDetails, String>{
-	
+
+	LoginDetails findByempID(String id);
+
+	LoginDetails findBygoogleID(String googleID);
 }

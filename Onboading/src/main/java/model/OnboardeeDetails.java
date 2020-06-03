@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,12 +15,30 @@ public class OnboardeeDetails {
 	private String name;
 	private String contactNo;
 	private String emailId;
+	private Date startDate;
+	private Date arrivalDate;
 	private String demandID;
 	private String location;
 	private String bgcStatus;
 	private String onboardingStatus;
 	private String docsStatus;
 	
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getArrivalDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(Date arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+
 	public OnboardeeDetails() {
 		super();
 	}
@@ -102,13 +122,13 @@ public class OnboardeeDetails {
 	public void setOnboardeeKey(int onboardeeKey) {
 		OnboardeeKey = onboardeeKey;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", OnboardeeID=" + OnboardeeID + ", name=" + name
-				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", demandID=" + demandID + ", location="
-				+ location + ", bgcStatus=" + bgcStatus + ", onboardingStatus=" + onboardingStatus + ", docsStatus="
-				+ docsStatus + "]";
+				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", startDate=" + startDate + ", arrivalDate="
+				+ arrivalDate + ", demandID=" + demandID + ", location=" + location + ", bgcStatus=" + bgcStatus
+				+ ", onboardingStatus=" + onboardingStatus + ", docsStatus=" + docsStatus + "]";
 	}
 	
 }
