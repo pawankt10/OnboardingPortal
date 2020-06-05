@@ -55,5 +55,12 @@ public class OnboardeeResource {
 		 System.out.println(onboardeeRepo.countBylocation(location)+" Hello");
 		 return onboardeeRepo.countBylocation(location);
 	 }
-	
+	 
+	 @GetMapping(value = "/search/id")
+	 public List<OnboardeeDetails> searchDemandById(@RequestParam String id){
+		 System.out.println(id);
+		 return onboardeeRepo.findByOnboardeeId(id);
+	 }
+	 
+	 
 }

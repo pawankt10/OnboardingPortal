@@ -13,6 +13,7 @@ import { getAuthServiceConfigs } from './socialloginconfigs';
 import { OnboardeeComponent } from './onboardee/onboardee.component';
 import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
 import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.component';
+import { ShowDemandsComponent } from './show-demands/show-demands.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.componen
     HomeComponent,
     OnboardeeComponent,
     ViewOnboardeeComponent,
-    EditOnboardeeComponent
+    EditOnboardeeComponent,
+    ShowDemandsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FetchOnboardeeService } from '../service/fetch-onboardee.service';
 import { DeleteOnboardeeService } from '../service/home/delete-onboardee.service';
 import { Key } from 'protractor';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   onboardeeList: Object
+  searchString: String
   key: any
   myDetails: number
   delhi: any
@@ -27,7 +29,6 @@ export class HomeComponent implements OnInit {
   chennai: any
   bangalore: any
   loginDetail: any
-
 
   handleAdd() {
     this.ngOnInit();

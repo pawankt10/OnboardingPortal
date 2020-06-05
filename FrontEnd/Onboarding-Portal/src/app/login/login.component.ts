@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
     private authenticate: AuthenticationService,
     private socialAuthService: AuthService
-  ) { }
+  ) {
+    sessionStorage.removeItem(AUTHENTICATED_USER);
+  }
 
   employeeCode = ''
   password = ''
@@ -50,7 +52,7 @@ export class LoginComponent implements OnInit {
         if (domain[1] == "accoliteindia.com") {
           this.authenticate.getEmployeeId(userData.id).subscribe(
             data => {
-            this.loginRecord = data; console.log(this.loginRecord);
+              this.loginRecord = data; console.log(this.loginRecord);
               sessionStorage.setItem(AUTHENTICATED_USER, this.loginRecord.empID);
               this.router.navigate([`home/${this.loginRecord.empID}`])
             },

@@ -11,10 +11,11 @@ public class OnboardeeDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int OnboardeeKey;
-	private String OnboardeeID;
+	private String onboardeeId;
 	private String name;
 	private String contactNo;
 	private String emailId;
+	private String recruiterID;
 	private Date startDate;
 	private Date arrivalDate;
 	private String demandID;
@@ -44,11 +45,11 @@ public class OnboardeeDetails {
 	}
 
 	public String getOnboardeeID() {
-		return OnboardeeID;
+		return onboardeeId;
 	}
 
 	public void setOnboardeeID(String onboardeeID) {
-		OnboardeeID = onboardeeID;
+		onboardeeId = onboardeeID;
 	}
 
 	public String getName() {
@@ -123,12 +124,21 @@ public class OnboardeeDetails {
 		OnboardeeKey = onboardeeKey;
 	}
 	
+	
+	public String getRecruiterID() {
+		return recruiterID;
+	}
+
+	public void setRecruiterID(String recruiterID) {
+		this.recruiterID = recruiterID;
+	}
+
 	@Override
 	public String toString() {
-		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", OnboardeeID=" + OnboardeeID + ", name=" + name
-				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", startDate=" + startDate + ", arrivalDate="
-				+ arrivalDate + ", demandID=" + demandID + ", location=" + location + ", bgcStatus=" + bgcStatus
-				+ ", onboardingStatus=" + onboardingStatus + ", docsStatus=" + docsStatus + "]";
+		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", onboardeeId=" + onboardeeId + ", name=" + name
+				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", recruiterID=" + recruiterID + ", startDate="
+				+ startDate + ", arrivalDate=" + arrivalDate + ", demandID=" + demandID + ", location=" + location
+				+ ", bgcStatus=" + bgcStatus + ", onboardingStatus=" + onboardingStatus + ", docsStatus=" + docsStatus
+				+ "]";
 	}
-	
 }

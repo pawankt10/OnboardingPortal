@@ -79,6 +79,8 @@
   <span style="font-weight: 600; font-size:large; color: white;">Onboarding Portal</span>
   <div><button class="ui inverted basic button" *ngIf="authenticate.isUserLoggedIn()"
       style="padding: 10px; margin-left: 50px;" [routerLink]="['/home', key]">Home</button></div>
+  <div><button class="ui inverted basic button" *ngIf="authenticate.isUserLoggedIn()"
+      style="padding: 10px; margin-left: 10px;" [routerLink]="['/demands']">Demand</button></div>
   <div class="spacer"></div>
   <div><button class="ui inverted basic button" *ngIf="authenticate.isUserLoggedIn()" style="padding: 10px;"
       (click)=logout()>Logout</button></div>

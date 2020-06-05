@@ -30,4 +30,7 @@ export class FetchOnboardeeService {
     return this.http.get(`http://localhost:8080/home/${id}`);
   }
 
+  fetchDemandList(){
+    return this.http.get('http://localhost:8080/demand', {});
+  }
 }

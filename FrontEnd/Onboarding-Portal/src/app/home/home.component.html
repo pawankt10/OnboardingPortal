@@ -43,15 +43,15 @@
             <div class="ui right floated small button" (click)="handleAdd()">
               <i class="user icon"></i> Add Onboardee
             </div>
-            <div class="ui small button" (click)=editDetails()>
+            <div class="ui small button" (click)=editDetails() *ngIf="myDetails">
               <i class="edit icon"></i>
               Edit
             </div>
-            <div class="ui small button" (click)=deleteOnboardee()>
+            <div class="ui small button" (click)=deleteOnboardee() *ngIf="myDetails">
               <i class="trash icon"></i>
               Delete
             </div>
-            <div class="ui small button" (click)=viewDetails()>
+            <div class="ui small button" (click)=viewDetails() *ngIf="myDetails">
               <i class="eye icon"></i>
               View
             </div>

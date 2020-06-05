@@ -1,0 +1,20 @@
+<div style="margin-top: 90px;"></div>
+<div class="container" style="width: 1000px; margin-Left: 'auto'; margin-Right: 'auto';">
+    <div class="ui three column grid">
+        <div class="ui piled segment" *ngFor="let dd of demandList" style="width: 250px; margin-Left: 'auto'; margin-Right: 'auto'; padding: 30px; 
+    height: 300px; margin-top: 30px;">
+            <div class="column">
+                <div style="height: 40px;">
+                    <h3 class="ui horizontal divider header" style="margin-top: 10px; color:#0f1c23">
+                        Demand
+                    </h3>
+                </div>
+                <p style="margin-top: 15px;"><b>Demand ID : </b><i>{{dd.demandID}}</i></p>
+                <p><b>Employee ID : </b><i>{{dd.empID}}</i></p>
+                <p><b>Role : </b><i>{{dd.role}}</i></p>
+                <p><b>Employment Type : </b><i>{{dd.empType}}</i></p>
+                <p><b>Experience : </b><i>{{dd.experience}}</i></p>
+            </div>
+        </div>
+    </div>
+</div>

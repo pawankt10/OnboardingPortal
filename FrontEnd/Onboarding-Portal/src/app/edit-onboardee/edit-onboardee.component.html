@@ -21,43 +21,36 @@
             </div>
         </div>
         <div class="two fields">
-            <div class="six wide field" style="margin-top: 5px">
-                <label>Contact Number</label>
-                <input type="text" name="ContactNo" placeholder="Contact Number" formControlName="contactNo"
-                    style="height: 30px;">
+            <div class="field" style="margin-top: 8px">
+                <label>Demand ID</label>
+                <input type="text" formControlName="demandID" style="height: 31px;" disabled>
             </div>
-            <div class="ten wide field" style="margin-top: 5px">
+            <div class="field" style="margin-top: 8px">
+                <label>Recruiter ID</label>
+                <input type="text" formControlName="recruiterID" style="height: 31px;" disabled>
+            </div>
+        </div>
+
+        <div class="required two fields">
+            <div class="six wide field" style="margin-top: 8px">
+                <label>Contact Number</label>
+                <input type="number" placeholder="Contact Number" formControlName="contactNo" style="height: 31px;">
+            </div>
+            <div class="ten wide field" style="margin-top: 8px">
                 <label>Email ID</label>
                 <input type="text" name="EmailID" placeholder="Email ID" formControlName="emailId"
-                    style="height: 30px;">
+                    style="height: 31px;">
             </div>
         </div>
 
-        <div class="two fields">
-            <div class="field" style="margin-top: 5px;">
+        <div class="required two fields">
+            <div class="field" style="margin-top: 8px;">
                 <label>Onboarding Start Date</label>
-                <input type="date" name="StartDate" formControlName="startDate" style="height: 30px;">
+                <input type="date" formControlName="startDate" style="height: 31px;">
             </div>
-
-            <div class="field" style="margin-top: 5px;">
+            <div class="field" style="margin-top: 8px;">
                 <label>Estimated Time of Arrival</label>
-                <input type="date" name="ArrivalDate" formControlName="arrivalDate" style="height: 30px;">
-            </div>
-        </div>
-
-        <div class="inline fields" style="margin-top: 25px;">
-            <label>Demand ID</label>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="demandID" formControlName="demandID" value="Campus Hire" disabled>
-                    <label>Campus Hire</label>
-                </div>
-            </div>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="demandID" formControlName="demandID" value="Onsite Hire" disabled>
-                    <label>Onsite Hire</label>
-                </div>
+                <input type="date" formControlName="arrivalDate" style="height: 31px;">
             </div>
         </div>
 

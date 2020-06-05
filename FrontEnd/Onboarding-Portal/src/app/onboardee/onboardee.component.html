@@ -8,56 +8,77 @@
                 Onboardee Details
             </h4>
         </div>
+        <!-- <div  >
+            <div class="header">
+              Invalid form details!
+            </div>
+            <div class="ui negative message"*ngIf="!myform.controls['name'].valid && myform.controls['name'].touched">This field can't be blank</div>
+            <div class="ui negative message"*ngIf="!myform.controls['onboardeeID'].valid && myform.controls['name'].touched">This field can't be blank</div>
+            <div class="ui negative message"*ngIf="!myform.controls['contactNo'].valid">Length should be 10 digits</div>
+            <div class="ui negative message"*ngIf="!myform.controls['emailId'].svalid">Provide a valid e-mail address</div>
+            <div class="ui negative message"*ngIf="!myform.controls['startDate'].valid && myform.controls['name'].touched">This field can't be blank</div>
+            <div class="ui negative message"*ngIf="!myform.controls['arrivalDate'].valid && myform.controls['name'].touched">This field can't be blank</div>
+        </div> -->
+        <!-- <div class="ui negative message"*ngIf="myform.controls['name'].touched || myform.controls['name'].dirty">This field can't be blank</div> -->
         <div class="two fields">
-            <div class=" field" style="margin-top: 20px">
+            <div class="required field" style="margin-top: 20px">
                 <label>Full Name</label>
                 <input type="text" name="full-name" placeholder="Full Name" formControlName="name"
-                    style="height: 30px;">
+                    style="height: 31px;">
             </div>
-            <div class="field" style="margin-top: 20px">
+            <div class="required field" style="margin-top: 20px">
                 <label>Onboardee ID</label>
                 <input type="text" name="OnboardeeId" placeholder="Onboardee ID" formControlName="onboardeeID"
-                    style="height: 30px;">
+                    style="height: 31px;">
             </div>
         </div>
+
+        <!-- <h4>Basic mat-select</h4>
+        <mat-form-field>
+          <mat-label>Favorite food</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+
         <div class="two fields">
-            <div class="six wide field" style="margin-top: 5px">
-                <label>Contact Number</label>
-                <input type="text" name="ContactNo" placeholder="Contact Number" formControlName="contactNo"
-                    style="height: 30px;">
+            <div class="required field" style="margin-top: 8px">
+                <label>Demand ID</label>
+                <select formControlName="demandID" style="height: 31px; text-align: center; position: relative;">
+                    <option value="" disabled selected hidden>Select Demand ID</option>
+                    <option style="padding: 20px;" *ngFor="let dd of demandList">{{dd.demandID}}</option>
+                </select>
             </div>
-            <div class="ten wide field" style="margin-top: 5px">
+            <div class="field" style="margin-top: 8px">
+                <label>Recruiter ID</label>
+                <input type="text" formControlName="recruiterID" style="height: 31px;" disabled>
+            </div>
+        </div>
+
+
+        <div class="required two fields">
+            <div class="six wide field" style="margin-top: 8px">
+                <label>Contact Number</label>
+                <input type="number" placeholder="Contact Number" formControlName="contactNo" style="height: 31px;">
+            </div>
+            <div class="ten wide field" style="margin-top: 8px">
                 <label>Email ID</label>
                 <input type="text" name="EmailID" placeholder="Email ID" formControlName="emailId"
-                    style="height: 30px;">
+                    style="height: 31px;">
             </div>
         </div>
 
-        <div class="two fields">
-            <div class="field" style="margin-top: 5px;">
+        <div class="required two fields">
+            <div class="field" style="margin-top: 8px;">
                 <label>Onboarding Start Date</label>
-                <input type="date" name="StartDate" formControlName="startDate" style="height: 30px;">
+                <input type="date" min="getDate(today)" formControlName="startDate" style="height: 31px;">
             </div>
-
-            <div class="field" style="margin-top: 5px;">
+            <div class="field" style="margin-top: 8px;">
                 <label>Estimated Time of Arrival</label>
-                <input type="date" name="ArrivalDate" formControlName="arrivalDate" style="height: 30px;">
-            </div>
-        </div>
-
-        <div class="inline fields" style="margin-top: 20px;">
-            <label>Demand ID</label>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="demandID" formControlName="demandID" value="Campus Hire">
-                    <label>Campus Hire</label>
-                </div>
-            </div>
-            <div class="field">
-                <div class="ui radio checkbox">
-                    <input type="radio" name="demandID" formControlName="demandID" value="Onsite Hire">
-                    <label>Onsite Hire</label>
-                </div>
+                <input type="date" formControlName="arrivalDate" style="height: 31px;">
             </div>
         </div>
 
@@ -142,8 +163,10 @@
                 </div>
             </div>
         </div>
-
-        <button class="ui button" type="submit" (click)="handleNewOnboardee(myform.value)"
+        <button class="ui button" type="submit" [disabled]="!myform.valid" (click)="handleNewOnboardee(myform.value)"
             style="margin-top: 15px;">Submit</button>
+
+        <button class="ui button" type="submit" (click)="myform.reset()" style="margin-top: 15px;">Reset</button>
+
     </form>
 </div>
