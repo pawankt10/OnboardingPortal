@@ -11,7 +11,7 @@ export class ShowDemandsComponent implements OnInit {
   demandList: any;
 
   constructor(
-    private fetch: FetchOnboardeeService
+    private fetch: FetchOnboardeeService,
   ) { }
 
   ngOnInit(): void {

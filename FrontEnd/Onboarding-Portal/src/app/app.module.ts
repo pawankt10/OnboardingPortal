@@ -6,14 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home-components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { getAuthServiceConfigs } from './socialloginconfigs';
-import { OnboardeeComponent } from './onboardee/onboardee.component';
-import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
-import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.component';
+import { OnboardeeComponent } from './home-components/onboardee/onboardee.component';
+import { ViewOnboardeeComponent } from './home-components/view-onboardee/view-onboardee.component';
+import { EditOnboardeeComponent } from './home-components/edit-onboardee/edit-onboardee.component';
 import { ShowDemandsComponent } from './show-demands/show-demands.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ShowDemandsComponent } from './show-demands/show-demands.component';
     OnboardeeComponent,
     ViewOnboardeeComponent,
     EditOnboardeeComponent,
-    ShowDemandsComponent
+    ShowDemandsComponent,
   ],
   imports: [
     BrowserModule,

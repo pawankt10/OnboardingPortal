@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
-import { OnboardeeComponent } from './onboardee/onboardee.component';
-import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
-import { EditOnboardeeComponent } from './edit-onboardee/edit-onboardee.component';
+import { HomeComponent } from './home-components/home/home.component';
+import { OnboardeeComponent } from './home-components/onboardee/onboardee.component';
+import { ViewOnboardeeComponent } from './home-components/view-onboardee/view-onboardee.component';
+import { EditOnboardeeComponent } from './home-components/edit-onboardee/edit-onboardee.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { ShowDemandsComponent } from './show-demands/show-demands.component';
-
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

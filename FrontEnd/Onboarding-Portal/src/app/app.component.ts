@@ -25,7 +25,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.key = sessionStorage.getItem(AUTHENTICATED_USER);
-    console.log(AUTHENTICATED_USER);
+    console.log(this.key);
   }
 
 }
