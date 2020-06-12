@@ -14,13 +14,17 @@ export class ShowDemandsComponent implements OnInit {
     private fetch: FetchOnboardeeService,
   ) { }
 
-  ngOnInit(): void {
+  fetchList() {
     this.fetch.fetchDemandList().subscribe(
       data => {
         this.demandList = data;
       },
       error => console.log(error)
     );
+  }
+
+  ngOnInit(): void {
+    this.fetchList();
   }
 
 }

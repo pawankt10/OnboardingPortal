@@ -12,8 +12,6 @@ export class AddOnboardeeService {
 
   addNewOnboardee(data) {
     console.log(data);
-    this.http.post('http://localhost:8080//OnboardeeDetails', data).subscribe(
-      response => console.log(response),
-      error => console.log("Hello"));
+    return this.http.put('http://localhost:8080//OnboardeeDetails', data);
   }
 }

@@ -67,4 +67,15 @@ public class LoginDetails {
 		return "LoginDetails [empID=" + empID + ", name=" + name + ", password=" + password + ", emailID=" + emailID
 				+ ", department=" + department + ", googleID=" + googleID + "]";
 	}
+
+	public LoginDetails(String empID, String name, String password, String emailID, String department,
+			String googleID) {
+		this.empID = empID;
+		this.name = name;
+		this.password = password;
+		this.emailID = emailID;
+		this.department = department;
+		this.googleID = googleID;
+	}
+	
 }

@@ -17,8 +17,7 @@ export class ViewOnboardeeComponent implements OnInit {
   onboardee: any
   key: any
 
-  ngOnInit(): void {
-    this.key = this.route.snapshot.paramMap.get(`id`);
+  fetchDetails() {
     this.fetch.fetchOnboardee(this.key).subscribe(
       data => {
         console.log(data);
@@ -26,6 +25,11 @@ export class ViewOnboardeeComponent implements OnInit {
         console.log(this.onboardee);
       },
       error => console.log(error));
+  }
+
+  ngOnInit(): void {
+    this.key = this.route.snapshot.paramMap.get(`id`);
+    this.fetchDetails();
   }
 
 }

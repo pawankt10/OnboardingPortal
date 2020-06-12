@@ -43,6 +43,16 @@ public class DemandDetails {
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
+	
+	public DemandDetails(String demandID, String empID, String role, String empType, String experience) {
+		super();
+		this.demandID = demandID;
+		this.empID = empID;
+		this.role = role;
+		this.empType = empType;
+		this.experience = experience;
+	}
+	
 	@Override
 	public String toString() {
 		return "DemandDetails [demandID=" + demandID + ", empID=" + empID + ", role=" + role + ", empType=" + empType

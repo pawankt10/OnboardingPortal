@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   chennai: any
   bangalore: any
   loginDetail: any
-  
+
   handleAdd() {
     this.ngOnInit();
     this.router.navigate(['onboardee'])
@@ -47,11 +47,11 @@ export class HomeComponent implements OnInit {
         });
   }
 
-  search(){
+  search() {
     console.log(this.searchString);
-    this.fetchList.searchDemandList(this.searchString).subscribe((data)=>{
+    this.fetchList.searchDemandList(this.searchString).subscribe((data) => {
       console.log(data);
-      let arr = [data]; 
+      let arr = [data];
       this.onboardeeList = arr;
     })
   }
@@ -63,43 +63,46 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`edit/${this.myDetails}`])
   }
 
-  ngOnInit(): void {
-    this.key = this.route.snapshot.paramMap.get(`id`);
+  fetchCountAtLocation(location: String) {
+    let smallCaseLocation: String;
 
+    this.fetchList.fetchCount(location).subscribe(
+      data => {
+        smallCaseLocation = location.toLowerCase();
+        this[smallCaseLocation.valueOf()] = data;
+        console.log(data);
+      },
+      error => console.log(error)
+    );
+  }
+
+  fetchLoginDetails(key) {
+    this.fetchList.fetchLoginDetails(key).subscribe(
+      data => this.loginDetail = data,
+      error => console.log(error)
+    );
+  }
+
+  fetchOnboardeeDetailsList() {
     this.fetchList.fetchOnboardeeList().subscribe(
       data => {
         console.log(data);
         this.onboardeeList = data
       },
       error => console.log(error));
+  }
 
-    this.fetchList.fetchCount("Mumbai").subscribe(
-      data => {
-        this.mumbai = data;
-        console.log(data);
-      },
-      error => console.log(error)
-    );
-    this.fetchList.fetchCount("Hyderabad").subscribe(
-      data => this.hyderabad = data,
-      error => console.log(error)
-    );
-    this.fetchList.fetchCount("Delhi").subscribe(
-      data => this.delhi = data,
-      error => console.log(error)
-    );
-    this.fetchList.fetchCount("Chennai").subscribe(
-      data => this.chennai = data,
-      error => console.log(error)
-    );
-    this.fetchList.fetchCount("Bangalore").subscribe(
-      data => this.bangalore = data,
-      error => console.log(error)
-    );
+  ngOnInit(): void {
+    this.key = this.route.snapshot.paramMap.get(`id`);
 
-    this.fetchList.fetchLoginDetails(this.key).subscribe(
-      data => this.loginDetail = data,
-      error => console.log(error)
-    );
+    this.fetchOnboardeeDetailsList();
+
+    this.fetchCountAtLocation("Mumbai");
+    this.fetchCountAtLocation("Hyderabad");
+    this.fetchCountAtLocation("Chennai");
+    this.fetchCountAtLocation("Bangalore");
+    this.fetchCountAtLocation("Delhi");
+
+    this.fetchLoginDetails(this.key);
   }
 }

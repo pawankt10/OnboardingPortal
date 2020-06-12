@@ -25,15 +25,22 @@ export class EditOnboardeeComponent implements OnInit {
 
   saveOnboardee(data: any) {
     this.fetch.saveOnboardee(data, this.key).subscribe(
-      data => console.log(data),
+      () => this.router.navigate([`home/${this.recruiterID}`]),
       error => console.log(error));
-    console.log(data);
-    this.router.navigate([`home/${this.recruiterID}`])
   }
 
-  ngOnInit(): void {
-    this.recruiterID = sessionStorage.getItem(AUTHENTICATED_USER)
+  fetchOnboardeeDetails() {
+    this.fetch.fetchOnboardee(this.key).subscribe(
+      data => {
+        console.log(data);
+        this.onboardee = data;
+        this.myform = this.fb.group(<FormGroup>this.onboardee);
+        console.log(this.onboardee);
+      },
+      error => console.log(error));
+  }
 
+  formBuilder() {
     this.myform = this.fb.group({
       name: new FormControl('', [Validators.required]),
       onboardeeID: new FormControl('', [Validators.required]),
@@ -48,15 +55,12 @@ export class EditOnboardeeComponent implements OnInit {
       startDate: new FormControl('', [Validators.required]),
       arrivalDate: new FormControl('', [Validators.required]),
     });
+  }
 
+  ngOnInit(): void {
+    this.recruiterID = sessionStorage.getItem(AUTHENTICATED_USER);
+    this.formBuilder();
     this.key = this.route.snapshot.paramMap.get(`id`);
-    this.fetch.fetchOnboardee(this.key).subscribe(
-      data => {
-        console.log(data);
-        this.onboardee = data;
-        this.myform = this.fb.group(<FormGroup>this.onboardee);
-        console.log(this.onboardee);
-      },
-      error => console.log(error));
+    this.fetchOnboardeeDetails();
   }
 }

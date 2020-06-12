@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import model.OnboardeeDetails;
 import repository.OnboardeeRepository;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins={"http://localhost:4200", "http://localhost:9876"})
 @RestController
 public class OnboardeeResource {
 
@@ -23,14 +23,14 @@ public class OnboardeeResource {
     private OnboardeeRepository onboardeeRepo;
 	
 	
-	 @PostMapping(value = "/OnboardeeDetails")
+	 @PutMapping(value = "/OnboardeeDetails")
 	    public OnboardeeDetails addOnboardeeDetails(@RequestBody OnboardeeDetails details) {
 	    	System.out.println(details);
 	    	return onboardeeRepo.save(details);
 	    }
 	 
 	 @GetMapping(value = "/onboardeeList")
-	 public List<OnboardeeDetails> fetchOnboardeeDetails() {
+	 public List<OnboardeeDetails> fetchAllOnboardeeDetails() {
 	    	return onboardeeRepo.findAll();
 	    }
 	 
@@ -57,10 +57,10 @@ public class OnboardeeResource {
 	 }
 	 
 	 @GetMapping(value = "/search/id")
-	 public List<OnboardeeDetails> searchDemandById(@RequestParam String id){
+	 public Optional<OnboardeeDetails> searchDemandById(@RequestParam String id){
 		 System.out.println(id);
-		 return onboardeeRepo.findByOnboardeeId(id);
-	 }
-	 
+		 Optional<OnboardeeDetails> obj = onboardeeRepo.findByOnboardeeid(id);
+		 return obj;
+	 } 
 	 
 }

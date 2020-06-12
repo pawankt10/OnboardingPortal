@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import model.LoginDetails;
 import repository.LoginRepository;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins={"http://localhost:4200", "http://localhost:9876"})
 @RestController
 public class LoginResource {
 
@@ -17,21 +17,16 @@ public class LoginResource {
 	   
 	    @PostMapping(value="/details") 
 	    public LoginDetails getLoginDetails(@RequestBody LoginDetails loginDetails) {
-			try {
-	    	loginDetails.getEmpID();
 			Optional<LoginDetails> cred = loginRepo.findById(loginDetails.getEmpID());
-			if(cred!=null) {
+			if(cred.isPresent()) {
 				LoginDetails d = cred.get();
 				if(loginDetails.getPassword().equals(d.getPassword())) {
-					System.out.println("True");
 					return d;
 				}
+				
+				return null;
 			}
-			}catch(Exception e) {
-				e.printStackTrace();
-				return null;	
-			}
-			System.out.println("False2");
+			
 			return null;	
 	    }
 	    

@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,45 +9,55 @@ public class OnboardeeDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int OnboardeeKey;
-	private String onboardeeId;
+	private String OnboardeeID;
 	private String name;
 	private String contactNo;
 	private String emailId;
 	private String recruiterID;
-	private Date startDate;
-	private Date arrivalDate;
+	private String startDate;
+	private String arrivalDate;
 	private String demandID;
 	private String location;
 	private String bgcStatus;
 	private String onboardingStatus;
 	private String docsStatus;
 	
-	public Date getStartDate() {
+	public OnboardeeDetails(int onboardeeKey, String onboardeeID, String name, String contactNo, String emailId,
+			String recruiterID, String startDate, String arrivalDate, String demandID, String location,
+			String bgcStatus, String onboardingStatus, String docsStatus) {
+		OnboardeeKey = onboardeeKey;
+		OnboardeeID = onboardeeID;
+		this.name = name;
+		this.contactNo = contactNo;
+		this.emailId = emailId;
+		this.recruiterID = recruiterID;
+		this.startDate = startDate;
+		this.arrivalDate = arrivalDate;
+		this.demandID = demandID;
+		this.location = location;
+		this.bgcStatus = bgcStatus;
+		this.onboardingStatus = onboardingStatus;
+		this.docsStatus = docsStatus;
+	}
+
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getArrivalDate() {
+	public String getArrivalDate() {
 		return arrivalDate;
 	}
 
-	public void setArrivalDate(Date arrivalDate) {
+	public void setArrivalDate(String arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
 
 	public OnboardeeDetails() {
 		super();
-	}
-
-	public String getOnboardeeID() {
-		return onboardeeId;
-	}
-
-	public void setOnboardeeID(String onboardeeID) {
-		onboardeeId = onboardeeID;
 	}
 
 	public String getName() {
@@ -133,9 +141,17 @@ public class OnboardeeDetails {
 		this.recruiterID = recruiterID;
 	}
 
+	public String getOnboardeeID() {
+		return OnboardeeID;
+	}
+
+	public void setOnboardeeID(String onboardeeID) {
+		OnboardeeID = onboardeeID;
+	}
+
 	@Override
 	public String toString() {
-		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", onboardeeId=" + onboardeeId + ", name=" + name
+		return "OnboardeeDetails [OnboardeeKey=" + OnboardeeKey + ", OnboardeeID=" + OnboardeeID + ", name=" + name
 				+ ", contactNo=" + contactNo + ", emailId=" + emailId + ", recruiterID=" + recruiterID + ", startDate="
 				+ startDate + ", arrivalDate=" + arrivalDate + ", demandID=" + demandID + ", location=" + location
 				+ ", bgcStatus=" + bgcStatus + ", onboardingStatus=" + onboardingStatus + ", docsStatus=" + docsStatus

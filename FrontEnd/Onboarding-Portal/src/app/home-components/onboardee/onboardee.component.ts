@@ -36,8 +36,20 @@ export class OnboardeeComponent implements OnInit {
 
   handleNewOnboardee(data) {
     console.log(data);
-    this.onboardee.addNewOnboardee(data);
-    this.router.navigate([`home/${this.recruiterID}`])
+    this.onboardee.addNewOnboardee(data).subscribe(
+      () => this.router.navigate([`home/${this.recruiterID}`])
+    );
+
+  }
+
+  fetchDemandList() {
+    this.fetch.fetchDemandList().subscribe(
+      data => {
+        this.demandList = data;
+        console.log(data);
+      },
+      error => console.log(error)
+    );
   }
 
   ngOnInit(): void {
@@ -57,14 +69,7 @@ export class OnboardeeComponent implements OnInit {
     // console.log(this.today);
     // console.log(this.start);
 
-
-    this.fetch.fetchDemandList().subscribe(
-      data => {
-        this.demandList = data;
-        console.log(data);
-      },
-      error => console.log(error)
-    );
+    this.fetchDemandList();
 
     this.recruiterID = sessionStorage.getItem(AUTHENTICATED_USER)
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import model.DemandDetails;
 import repository.DemandRepository;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins= {"http://localhost:4200", "http://localhost:9876"})
 @RestController
 public class DemandResource {
 	

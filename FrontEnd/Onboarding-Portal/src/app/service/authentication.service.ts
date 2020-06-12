@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LoginService } from './data/login.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 export const AUTHENTICATED_USER = 'validatedUser'
@@ -16,7 +15,6 @@ export class AuthenticationService {
 
   authenticate(eID, password) {
     this.invalidUser = true
-    //console.log(this.login.executeLogin());
     return this.http.post('http://localhost:8080/details', { "empID": eID, "password": password }).pipe(
       map(data => {
         return data;
@@ -25,7 +23,7 @@ export class AuthenticationService {
   }
 
   getEmployeeId(googleID: String) {
-    console.log(googleID);
+    //console.log(googleID);
     return this.http.get(`http://localhost:8080/home2/${googleID}`);
   }
 

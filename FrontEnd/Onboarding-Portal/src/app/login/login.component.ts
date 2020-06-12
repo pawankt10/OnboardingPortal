@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   employeeCode = ''
   password = ''
-  invalidLogin: boolean
+  invalidLogin: boolean = false
   loginRecord: any
   error: boolean
 
@@ -48,19 +48,29 @@ export class LoginComponent implements OnInit {
 
         console.log(userData);
         const email = userData.email
+        console.log(email);
         var domain = email.split("@");
+        console.log(domain[1]);
         if (domain[1] == "accoliteindia.com") {
+
           this.authenticate.getEmployeeId(userData.id).subscribe(
             data => {
-              this.loginRecord = data; console.log(this.loginRecord);
+              console.log('works');
+
+              this.loginRecord = data != null ? data : { empID: 'INT406' };
+              console.log(this.loginRecord);
+
               sessionStorage.setItem(AUTHENTICATED_USER, this.loginRecord.empID);
               this.router.navigate([`home/${this.loginRecord.empID}`])
+
             },
             error => console.log(error)
           );
         }
-        else
-          this.invalidLogin = true
+        else {
+          console.log('else');
+          this.invalidLogin = true;
+        }
       });
   }
 
