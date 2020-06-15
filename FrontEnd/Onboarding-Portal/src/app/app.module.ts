@@ -14,6 +14,7 @@ import { OnboardeeComponent } from './home-components/onboardee/onboardee.compon
 import { ViewOnboardeeComponent } from './home-components/view-onboardee/view-onboardee.component';
 import { EditOnboardeeComponent } from './home-components/edit-onboardee/edit-onboardee.component';
 import { ShowDemandsComponent } from './show-demands/show-demands.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ShowDemandsComponent } from './show-demands/show-demands.component';
     HttpClientModule,
     SocialLoginModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([]),
   ],
   providers: [
     {

@@ -12,6 +12,8 @@ public class DemandDetails {
 	private String empType;
 	private String experience;
 	
+	public DemandDetails() {
+	}
 	
 	public String getDemandID() {
 		return demandID;

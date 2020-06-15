@@ -1,6 +1,7 @@
 package resource;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,10 +18,12 @@ public class DemandResource {
 	@Autowired
     private DemandRepository demandRepo;
 	
+	private final static Logger log = Logger.getLogger(LoginResource.class.getName());
+	
 	@GetMapping(value = "/demand")
 	public List<DemandDetails> fetchDemandID() {
-		 return demandRepo.findAll();
-		
+		log.info("GET request received for all demands");
+		return demandRepo.findAll();
 	}
 
 }

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FetchOnboardeeService } from 'src/app/service/fetch-onboardee.service';
 import { of, throwError } from 'rxjs';
 import { DeleteOnboardeeService } from 'src/app/service/home/delete-onboardee.service';
+import { AgGridModule } from 'ag-grid-angular';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -18,6 +19,7 @@ describe('HomeComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientModule,
+        AgGridModule.withComponents([]),
       ],
       providers: [
         FetchOnboardeeService,
@@ -59,9 +61,14 @@ describe('HomeComponent', () => {
     expect(component.onboardeeList).toEqual([{}]);
   });
 
+  it('grid API is available after `detectChanges`', () => {
+    expect(component.agGrid.api).toBeTruthy();
+  });
+
   it('should invoke ngOnIt() upon successful deletion', () => {
     spyOn(deleteRecord, 'deleteOnboardee').and.returnValue(of(null));
     spyOn(component, 'ngOnInit');
+    spyOn(component, 'handleSelection').and.returnValue({ onboardeeKey: 29 });
 
     component.deleteOnboardee();
     expect(component.ngOnInit).toHaveBeenCalled();
@@ -70,9 +77,24 @@ describe('HomeComponent', () => {
   it('should not invoke ngOnIt() upon unsuccessful deletion', () => {
     spyOn(deleteRecord, 'deleteOnboardee').and.returnValue(throwError('error message'));
     spyOn(window.console, 'log');
+    spyOn(component, 'handleSelection').and.returnValue({ onboardeeKey: 29 });
 
     component.deleteOnboardee();
     expect(window.console.log).toHaveBeenCalled();
+  });
+
+  it('should invoke handleSelection on clicking of edit button', () => {
+    spyOn(component, 'handleSelection').and.returnValue({ onboardeeKey: 29 });
+
+    component.editDetails();
+    expect(component.handleSelection).toHaveBeenCalled();
+  });
+
+  it('should invoke handleSelection on clicking of view button', () => {
+    spyOn(component, 'handleSelection').and.returnValue({ onboardeeKey: 29 });
+
+    component.viewDetails();
+    expect(component.handleSelection).toHaveBeenCalled();
   });
 
   it('should set loginDetail upon getting valid data', () => {

@@ -1,70 +1,38 @@
 <div style="margin-top: 90px;"></div>
 
 <div class="ui two column grid">
-  <div class="nine wide column">
+  <div class="ten wide column">
     <div>
       <h3 style="margin-left: 100px;">
         <i class="large align justify icon"></i> Onboardee List</h3>
-      <div class="ui small search">
-        <div class="ui icon input" style="margin-left: 100px;">
-          <input class="prompt" type="text" [(ngModel)]="searchString" placeholder="Search Onboardee...">
-          <a [routerLink]="" (click)="search()"><i class="search icon"></i></a>
-        </div>
-        <div class="results"></div>
-        <!-- <button (click)="search()">Search</button> -->
-      </div>
-
     </div>
-    <table class="ui celled striped table" style="margin-left: 100px;">
 
-      <tbody style="height: 250px; overflow-y: auto; overflow-x: hidden; display: block;">
-        <thead>
-          <tr>
-            <th><i class="dot circle outline icon"></i></th>
-            <th>Onboardee ID</th>
-            <th>Name</th>
-            <th>E-mail address</th>
-            <th>Onboarding Check</th>
-          </tr>
-        </thead>
-        <tr class="" *ngFor="let onboardee of onboardeeList">
-          <td class="">
-            <div class="ui radio checkbox">
-              <input type="radio" name="tick" [(ngModel)]="myDetails" value={{onboardee.onboardeeKey}}> <label></label>
-            </div>
-          </td>
-          <td class="">{{onboardee.onboardeeID}}</td>
-          <td class="">{{onboardee.name}}</td>
-          <td class="">{{onboardee.emailId}}</td>
-          <td class="">{{onboardee.onboardingStatus}}</td>
-        </tr>
-      </tbody>
-      <tfoot class="full-width">
-        <tr>
-          <th colspan="5">
-            <div class="ui right floated small button" (click)="handleAdd()">
-              <i class="user icon"></i> Add Onboardee
-            </div>
-            <div class="ui small button" (click)=editDetails() *ngIf="myDetails">
-              <i class="edit icon"></i>
-              Edit
-            </div>
-            <div class="ui small button" (click)=deleteOnboardee() *ngIf="myDetails">
-              <i class="trash icon"></i>
-              Delete
-            </div>
-            <div class="ui small button" (click)=viewDetails() *ngIf="myDetails">
-              <i class="eye icon"></i>
-              View
-            </div>
-          </th>
-        </tr>
-      </tfoot>
-    </table>
+    <ag-grid-angular #agGrid style="width: 700px; height: 300px; margin-left: 100px; margin-top: 40px;"
+      class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs" [rowHeight]="30">
+    </ag-grid-angular>
+
+    <div style="background-color: #F5F7F7; margin-left: 100px; width: 700px;" class="ui segment">
+
+      <div class="ui right floated small button" (click)="handleAdd()">
+        <i class="user icon"></i> Add Onboardee
+      </div>
+      <div class="ui small button" (click)=editDetails()>
+        <i class="edit icon"></i>
+        Edit
+      </div>
+      <div class="ui small button" (click)=deleteOnboardee()>
+        <i class="trash icon"></i>
+        Delete
+      </div>
+      <div class="ui small button" (click)=viewDetails()>
+        <i class="eye icon"></i>
+        View
+      </div>
+    </div>
   </div>
 
   <div class="six wide column">
-    <a class="ui teal card" style="margin-left: 215px;">
+    <a class="ui teal card" style="margin-left: 100px;">
       <div class="content" *ngIf="loginDetail">
         <div class="header">{{loginDetail.name}}</div>
         <div class="meta"><i>{{loginDetail.emailID}}</i></div>
@@ -74,7 +42,7 @@
       </div>
     </a>
     <div style="margin-top: 200px;">
-      <div class="ui five statistics" style="margin-left: 320px;">
+      <div class="ui five statistics" style="margin-left: 300px;">
         <div class="ui red tiny horizontal statistic">
           <div class="value">
             {{bangalore}}
@@ -122,8 +90,4 @@
   <div class="eight wide column">
 
   </div>
-  <!-- <div class="eleven wide column"></div>
-    <div class="four wide column">
-
-    </div> -->
 </div>
