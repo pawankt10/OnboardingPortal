@@ -23,11 +23,15 @@ export class EditOnboardeeComponent implements OnInit {
   myform: FormGroup;
   recruiterID: String;
 
+  // *** send updated onboardee details to save into database ***
+
   saveOnboardee(data: any) {
     this.fetch.saveOnboardee(data, this.key).subscribe(
       () => this.router.navigate([`home/${this.recruiterID}`]),
       error => console.log(error));
   }
+
+  // *** requesting to fetch particular onboardee details to edit ***
 
   fetchOnboardeeDetails() {
     this.fetch.fetchOnboardee(this.key).subscribe(
@@ -35,6 +39,8 @@ export class EditOnboardeeComponent implements OnInit {
         console.log(data);
         this.onboardee = data;
         this.myform = this.fb.group(<FormGroup>this.onboardee);
+        this.myform.controls['startDate'].setValue(this.onboardee.startDate.slice(0, 10));
+        this.myform.controls['arrivalDate'].setValue(this.onboardee.arrivalDate.slice(0, 10));
         console.log(this.onboardee);
       },
       error => console.log(error));

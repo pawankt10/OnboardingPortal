@@ -23,7 +23,6 @@ export class AuthenticationService {
   }
 
   getEmployeeId(googleID: String) {
-    //console.log(googleID);
     return this.http.get(`http://localhost:8080/home2/${googleID}`);
   }
 

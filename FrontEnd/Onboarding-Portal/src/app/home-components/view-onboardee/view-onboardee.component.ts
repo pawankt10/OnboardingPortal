@@ -17,6 +17,8 @@ export class ViewOnboardeeComponent implements OnInit {
   onboardee: any
   key: any
 
+  // *** requesting to fetch particular onboardee details to view ***
+
   fetchDetails() {
     this.fetch.fetchOnboardee(this.key).subscribe(
       data => {

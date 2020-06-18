@@ -14,18 +14,12 @@ export class OnboardeeComponent implements OnInit {
 
   myform: FormGroup;
   date: Date = new Date();
-  start: String = "2020-06-06"
-  end: String = "2020-06-07"
+  start: String = "2020-06-18"
+  end: String = "2020-06-19"
   today: String
   demandList: any;
   demandIdList: any;
   recruiterID: String;
-  m: number
-  d: number
-  y: number
-  m1: String
-  d1: String
-  y1: String
 
   constructor(
     private router: Router,
@@ -34,13 +28,16 @@ export class OnboardeeComponent implements OnInit {
     private fetch: FetchOnboardeeService
   ) { }
 
+  // *** send form data to save into database ***
+
   handleNewOnboardee(data) {
     console.log(data);
     this.onboardee.addNewOnboardee(data).subscribe(
       () => this.router.navigate([`home/${this.recruiterID}`])
     );
-
   }
+
+  // *** requesting to fetch all the current demands ***
 
   fetchDemandList() {
     this.fetch.fetchDemandList().subscribe(
@@ -53,21 +50,6 @@ export class OnboardeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.date);
-    this.d = this.date.getDate();
-    // if (this.d < 10)
-    //   this.d1 = "0" + this.d
-    // console.log(this.d1);
-    // this.y = this.date.getFullYear();
-    // this.y1 = "" + this.y
-    // console.log(this.y1);
-    // this.m = this.date.getMonth();
-    // if (this.m < 10)
-    //   this.m1 = "0" + this.m
-    // console.log(this.m1);
-    // this.today = this.y1 + "-" + this.m1 + "-" + this.d1;
-    // console.log(this.today);
-    // console.log(this.start);
 
     this.fetchDemandList();
 

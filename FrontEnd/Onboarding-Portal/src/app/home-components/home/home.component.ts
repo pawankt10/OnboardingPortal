@@ -38,6 +38,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['onboardee'])
   }
 
+  // *** requesting to delete particular onboardee details ***
+
   deleteOnboardee() {
     this.deleteRecord.deleteOnboardee(this.handleSelection().onboardeeKey)
       .subscribe(
@@ -49,6 +51,8 @@ export class HomeComponent implements OnInit {
         });
   }
 
+  // *** fetching demand list  ***
+
   search() {
     console.log(this.searchString);
     this.fetchList.searchDemandList(this.searchString).subscribe((data) => {
@@ -58,13 +62,19 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  // *** navigate to view onboardee component ***
+
   viewDetails() {
-    this.router.navigate([`/view/${this.handleSelection().onboardeeKey}`])
+    this.router.navigate([`/view/${this.handleSelection()[0].onboardeeKey}`])
   }
 
+  // *** navigate to edit onboardee component ***
+
   editDetails() {
-    this.router.navigate([`edit/${this.handleSelection().onboardeeKey}`])
+    this.router.navigate([`edit/${this.handleSelection()[0].onboardeeKey}`])
   }
+
+  // *** requesting to get head count at the particular location ***
 
   fetchCountAtLocation(location: String) {
     let smallCaseLocation: String;
@@ -79,12 +89,16 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  // *** requesting to fetch logged in employee details ***
+
   fetchLoginDetails(key) {
     this.fetchList.fetchLoginDetails(key).subscribe(
       data => this.loginDetail = data,
       error => console.log(error)
     );
   }
+
+  // *** requesting to fetch onboardee list ***
 
   fetchOnboardeeDetailsList() {
     this.fetchList.fetchOnboardeeList().subscribe(
@@ -95,6 +109,8 @@ export class HomeComponent implements OnInit {
       },
       error => console.log(error));
   }
+
+  // *** helper function to get selected item from grid ***
 
   handleSelection() {
     this.selectedNodes = this.agGrid.api.getSelectedNodes();
@@ -108,7 +124,6 @@ export class HomeComponent implements OnInit {
     { headerName: 'Onboardee ID', field: 'onboardeeID', sortable: true, filter: true, checkboxSelection: true, width: 120 },
     { headerName: 'Name', field: 'name', sortable: true, filter: true },
     { headerName: 'E-mail address', field: 'emailId', sortable: true, filter: true },
-    // {headerName: "Key", field: "my_unique_id"},
     { headerName: 'Onboarding Check', field: 'onboardingStatus', sortable: true, filter: true, width: 168 }
   ];
 

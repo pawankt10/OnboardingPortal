@@ -9,6 +9,7 @@
 
 # dependencies
 FrontEnd/Onboarding-Portal/node_modules
+FrontEnd/Onboarding-Portal/coverage
 
 # profiling files
 chrome-profiler-events*.json

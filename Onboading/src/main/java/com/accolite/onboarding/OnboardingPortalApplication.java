@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"resource"})
+@ComponentScan(basePackages = { "controller" })
 @EntityScan("model")
-@EnableJpaRepositories("repository")
+@EnableJpaRepositories("dao")
 public class OnboardingPortalApplication {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package repository;
+package dao;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import model.OnboardeeDetails;
 
 @Repository
-public interface OnboardeeRepository extends JpaRepository<OnboardeeDetails, Integer> {
+public interface OnboardeeDao extends JpaRepository<OnboardeeDetails, Integer> {
 
 	int countBylocation(String location);
 	

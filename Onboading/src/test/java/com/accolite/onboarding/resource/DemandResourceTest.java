@@ -19,16 +19,16 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import controller.DemandController;
+import controller.LoginController;
+import controller.OnboardeeController;
+import dao.DemandDao;
+import dao.LoginDao;
+import dao.OnboardeeDao;
 import model.DemandDetails;
-import repository.DemandRepository;
-import repository.LoginRepository;
-import repository.OnboardeeRepository;
-import resource.DemandResource;
-import resource.LoginResource;
-import resource.OnboardeeResource;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(value = {LoginResource.class, DemandResource.class, OnboardeeResource.class})
+@WebMvcTest(value = {LoginController.class, DemandController.class, OnboardeeController.class})
 public class DemandResourceTest {
 	@Autowired
 	MockMvc mockMvc;
@@ -37,13 +37,13 @@ public class DemandResourceTest {
 	ObjectMapper objectMapper;
 	
 	@MockBean
-	private LoginRepository loginRepo;
+	private LoginDao loginRepo;
 	
 	@MockBean
-	private DemandRepository demandRepo;
+	private DemandDao demandRepo;
 	
 	@MockBean
-	private OnboardeeRepository onboardeeRepo;
+	private OnboardeeDao onboardeeRepo;
 
 	private List<DemandDetails> list;
 	

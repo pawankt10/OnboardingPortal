@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   loginRecord: any
   error: boolean
 
+  // *** handling login with credentials ***
+
   handleLogin() {
     this.authenticate.authenticate(this.employeeCode, this.password).subscribe(
       data => {
@@ -39,6 +41,8 @@ export class LoginComponent implements OnInit {
       },
       error => console.log(error))
   }
+
+  // *** handling login with google ***
 
   public signinWithGoogle() {
     let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
